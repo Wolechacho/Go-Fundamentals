@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+func main() {
+	f()
+	fmt.Println("Returned normally from f.")
+}
+
+func f() {
+	//before recover can work, it need to be in a defer func
+	defer func() {
+		//two statements in one line
+		if r := recover(); r != nil {
+			fmt.Println("Recovered in f", r)
+		}
+	}()
+	fmt.Println("Calling g")
+	g(0)
+	fmt.Println("Returned normally from g")
+}
+
+func g(i int) {
+	if i > 3 {
+		fmt.Println("Panicking")
+		panic(fmt.Sprintf("%v", i))
+	}
+	defer fmt.Println("Defer in g", i)
+	fmt.Println("printing in g", i)
+	g(i + 1)
+}

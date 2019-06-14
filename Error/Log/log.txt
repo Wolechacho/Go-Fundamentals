@@ -1,0 +1,2 @@
+2019/06/14 03:54:44 err happened open no-file.txt: no such file or directory
+2019/06/14 03:54:44 open no-one.txt: no such file or directory
