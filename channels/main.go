@@ -1,7 +1,9 @@
+//Package Thisnis demo
 package main
 
 import "fmt"
 
+//main this is the comment for the main func
 func main() {
 	//this is called making a buffer channel
 	c := make(chan int, 2)
